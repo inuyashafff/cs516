@@ -1,6 +1,5 @@
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
-import scala.collection.mutable.ArrayBuffer
 // Do NOT use different Spark libraries.
 
 object NoInOutLink {
@@ -22,7 +21,7 @@ object NoInOutLink {
             .textFile(inputDir+"/links-simple-sorted.txt", numPartitions)
         
         val flatten = links
-            .map(reformat)
+            .map(line => (line.replaceAll(":", "")))
             .flatMap(flatten_page)
         
         val titles = sc
@@ -30,57 +29,51 @@ object NoInOutLink {
             .zipWithIndex()
             .map(word => (word._2+1,word._1))
         
-        val no_outlinks=titles
+        val no_outlinks = titles
             .leftOuterJoin(flatten)
-            .map(unpackage)
+            .map(distributed)
             .filter(word => word._3 == None)
             .map(word => (word._1, word._2))
             .takeOrdered(10)(Ordering[Long].on(word =>word._1))
             .foreach(println)
         
         println("[ NO OUTLINKS ]")
+
+        val transform = flatten
+            .map( word => (word._2, word._1))
         
-        val reverseLinks=flatten
-            .map( word => (word._2, word._1) )
-        
-        val no_inlinks=titles
-            .leftOuterJoin(reverseLinks)
-            .map(unpackage)
+        println("[ NO INLINKS ]")
+        val no_inlinks = titles
+            .leftOuterJoin(transform)
+            .map(distributed)
             .filter(word => word._3 == None)
             .map(word => (word._1, word._2))
             .takeOrdered(10)(Ordering[Long].on(word =>word._1))
-        
-        println("\n[ NO INLINKS ]")
-        
-        no_inlinks
             .foreach(println)
-        
     }
     
-    def flatten_page(line:String): Array[(Long,Long)]= {
+    def flatten_page(line:String): Array[(Long,Long)] = {
         val pages = line.split(" ")    
         
-        val result:Array[(Long,Long)]=new Array[(Long,Long)](pages.length-1)
-        for(i <- 1 to (pages.length-1)  )
-        {
-            result(i-1)=( pages(0).toLong,pages(i).toLong)
-            
+        val result:Array[(Long,Long)] = new Array[(Long,Long)](pages.length-1)
+        var start = 1
+        while (start < pages.length){
+            result(start-1)=( pages(0).toLong,pages(start).toLong)
+            start = start+1
         }
         result
     }
     
-    def unpackage(line: (Long, (String, Option[Long]) ) ): (Long, String, Option[Long])={
-        val a=line._2
-        val b=a._1
-        val c=a._2
-        val d=line._1
-        val count:(Long, String, Option[Long])=(d,b,c)
-        count
+    def distributed(line: (Long, (String, Option[Long]))): (Long, String, Option[Long]) = {
+        val first=line._2
+        val second=first._1
+        val third=first._2
+        val forth=line._1
+        val result:(Long, String, Option[Long]) = (forth,second,third)
+        result
     }
     
-     def reformat(line: String):String={
-        line.replaceAll(":", "")
-    }
+    
     
 }
 

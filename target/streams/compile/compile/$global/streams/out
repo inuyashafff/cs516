@@ -1,7 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/chenfan/Desktop/516/hw2/hw2-code/src/main/scala/NoInOutLink.scala:22:60: not found: value num_partitions[0m
-[0m[[0m[31merror[0m] [0m[0m            .textFile(inputDir+"/links-simple-sorted.txt", num_partitions)[0m
-[0m[[0m[31merror[0m] [0m[0m                                                           ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/chenfan/Desktop/516/hw2/hw2-code/src/main/scala/NoInOutLink.scala:34:54: not found: value num_partitions[0m
-[0m[[0m[31merror[0m] [0m[0m            .textFile(inputDir+"/titles-sorted.txt", num_partitions)[0m
-[0m[[0m[31merror[0m] [0m[0m                                                     ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/chenfan/Desktop/516/hw2/hw2-code/src/main/scala/NoInOutLink.scala:67:19: reassignment to val[0m
+[0m[[0m[31merror[0m] [0m[0m            start = start+1[0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

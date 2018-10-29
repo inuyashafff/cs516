@@ -10,6 +10,8 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/chenfan/Desktop/516/hw2/hw2-code/target/scala-2.10/classes/NoInOutLink$$anonfun$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	PageRank$$anonfun$15.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/chenfan/Desktop/516/hw2/hw2-code/target/scala-2.10/classes/PageRank$$anonfun$15.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	NoInOutLink$$anonfun$14.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/chenfan/Desktop/516/hw2/hw2-code/target/scala-2.10/classes/NoInOutLink$$anonfun$14.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	PageRank$$anonfun$9.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/chenfan/Desktop/516/hw2/hw2-code/target/scala-2.10/classes/PageRank$$anonfun$9.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	PageRank$.class[0m
@@ -52,8 +54,6 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/chenfan/Desktop/516/hw2/hw2-code/target/scala-2.10/classes/PageRank$$anonfun$main$4.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	NoInOutLink$$anonfun$12.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/chenfan/Desktop/516/hw2/hw2-code/target/scala-2.10/classes/NoInOutLink$$anonfun$12.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	NoInOutLink$$anonfun$flatten_page$1.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/chenfan/Desktop/516/hw2/hw2-code/target/scala-2.10/classes/NoInOutLink$$anonfun$flatten_page$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	PageRank.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/chenfan/Desktop/516/hw2/hw2-code/target/scala-2.10/classes/PageRank.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	PageRank$$anonfun$13.class[0m
@@ -90,8 +90,6 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/chenfan/Desktop/516/hw2/hw2-code/target/scala-2.10/classes/NoInOutLink$$anonfun$4.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	PageRank$$anonfun$16.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/chenfan/Desktop/516/hw2/hw2-code/target/scala-2.10/classes/PageRank$$anonfun$16.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	NoInOutLink$$anonfun$main$1.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/chenfan/Desktop/516/hw2/hw2-code/target/scala-2.10/classes/NoInOutLink$$anonfun$main$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	PageRank$$anonfun$main$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/chenfan/Desktop/516/hw2/hw2-code/target/scala-2.10/classes/PageRank$$anonfun$main$1.class[0m
 [0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m
