@@ -1,0 +1,64 @@
+import org.apache.spark.SparkConf
+import org.apache.spark.SparkContext
+import scala.collection.mutable.ArrayBuffer
+// Do NOT use different Spark libraries.
+
+object NoInOutLink {
+
+  def main(args: Array[String]) {
+    val inputDir = "sample-input"
+    val linksFile = inputDir + "/links-simple-sorted.txt"
+    val titlesFile = inputDir + "/titles-sorted.txt"
+    val numPartitions = 10
+
+    val conf = new SparkConf()
+      .setAppName("NoInOutLink")
+      .setMaster("local[*]")
+      .set("spark.driver.memory", "1g")
+      .set("spark.executor.memory", "2g")
+
+    val sc = new SparkContext(conf)
+
+    val links = sc
+      .textFile(linksFile, numPartitions)
+    val fList = links
+      .map(reformat)
+      .flatMap(flatten)
+      .foreach(println)
+    
+   //1 A
+    val titles = sc
+      .textFile(titlesFile, numPartitions)
+      .zipWithIndex()
+      .map(word => (word._2+1,word._1))
+      .foreach(println)
+    // TODO
+    
+    /* No Outlinks */
+    val noOutlinks = () //titles
+      // .leftOuterJoin(links)
+       
+       
+    println("[ NO OUTLINKS ]")
+    // TODO
+
+    /* No Inlinks */
+    val noInlinks = () // TODO
+    println("\n[ NO INLINKS ]")
+    // TODO
+
+  }
+  def reformat(line:String):String = {
+      line.replaceAll(":","")
+  }
+  def flatten(line:String):Array[(Long,Long)] = {
+      var page = line.split(" ")
+      var after:Array[(Long,Long)] = new Array[(Long,Long)](page.length-1)
+      var start = 1
+      while (start < page.length-1){
+      	  after(start-1) = (page(0).toLong,page(start).toLong)
+	  start = start+1
+      } 
+      after
+  }
+}
